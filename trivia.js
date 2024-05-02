@@ -301,16 +301,37 @@ window.onload = function() {
 
             // Add event listeners to answer buttons
             var answerButtons = document.querySelectorAll(".answer-button");
+            var feedbackText = document.createElement("div"); // Create a new div element for feedback text
+            feedbackText.classList.add("feedback-text");
+
+            feedbackText.style.position = "absolute";
+            feedbackText.style.top = "70%";
+            feedbackText.style.left = "50%";
+            feedbackText.style.textAlign = "left";
+            feedbackText.style.whiteSpace = "normal";
+            feedbackText.style.maxWidth = "42%";
+            feedbackText.style.fontWeight = "bold";
+            feedbackText.style.fontSize = "20px";
+            feedbackText.style.color = "white";
+            feedbackText.style.fontFamily = "'helvetica', bold";
+            feedbackText.style.textShadow = "0 0 3px #003366, 0 0 3px #003366, 0 0 3px #003366, 0 0 3px #003366"; 
+
             answerButtons.forEach(function(button, index) {
                 button.addEventListener('click', function() {
                     // Handle button click
                     var isCorrect = index === selectedQuestion.correctAnswerIndex;
+
                     if (isCorrect) {
                         score += 10;
-                        // Display correct answer feedback if needed
+                        feedbackText.textContent = "CORRECTO +10!"; // Set feedback text to +10 if correct
                     } else {
-                        // Display incorrect answer feedback if needed
+                        feedbackText.textContent = "INCORRECTO!"; // Set feedback text to +0 if incorrect
                     }
+                    container.appendChild(feedbackText);
+
+                    setTimeout(function() {
+                        container.removeChild(feedbackText); // Remove feedback text after a second
+                    }, 1500);
 
                     // Remove question and answer buttons
                     container.removeChild(questionElement);
