@@ -279,7 +279,7 @@ window.onload = function() {
             answerButtonsContainer.style.width = "50%";
             answerButtonsContainer.style.display = "flex"; // Use flexbox to align buttons
             answerButtonsContainer.style.flexWrap = "wrap"; // Allow buttons to wrap to the next row
-            answerButtonsContainer.style.minWidth = "200px"; // Set a minimum width to maintain the grid layout
+            answerButtonsContainer.style.minWidth = "250px"; // Set a minimum width to maintain the grid layout
 
             container.appendChild(answerButtonsContainer);
 
