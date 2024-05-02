@@ -305,13 +305,13 @@ window.onload = function() {
             feedbackText.classList.add("feedback-text");
 
             feedbackText.style.position = "absolute";
-            feedbackText.style.top = "70%";
+            feedbackText.style.bottom = "5%";
             feedbackText.style.left = "50%";
-            feedbackText.style.textAlign = "left";
+            feedbackText.style.textAlign = "center";
             feedbackText.style.whiteSpace = "normal";
-            feedbackText.style.maxWidth = "42%";
+            feedbackText.style.maxWidth = "30%";
             feedbackText.style.fontWeight = "bold";
-            feedbackText.style.fontSize = "20px";
+            feedbackText.style.fontSize = "12px";
             feedbackText.style.color = "white";
             feedbackText.style.fontFamily = "'helvetica', bold";
             feedbackText.style.textShadow = "0 0 3px #003366, 0 0 3px #003366, 0 0 3px #003366, 0 0 3px #003366"; 
