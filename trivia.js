@@ -245,10 +245,30 @@ window.onload = function() {
             questionElement.style.fontSize = "20px";
             questionElement.style.color = "white";
             questionElement.style.fontFamily = "'helvetica', bold";
-
             questionElement.style.textShadow = "0 0 3px #003366, 0 0 3px #003366, 0 0 3px #003366, 0 0 3px #003366"; 
 
             container.appendChild(questionElement);
+
+            function adjustButtonFontSize() {
+                var screenWidth = window.innerWidth;
+                var fontSize = Math.min(20, screenWidth * 0.02); // Adjust this multiplier for desired responsiveness
+                var answerButtons = document.querySelectorAll(".answer-button");
+                answerButtons.forEach(function(button) {
+                    button.style.fontSize = fontSize + "px";
+                });
+            }
+
+            function adjustFontSize() {
+                var screenWidth = window.innerWidth;
+                var fontSize = Math.min(20, screenWidth * 0.02); // Adjust this multiplier for desired responsiveness
+                questionElement.style.fontSize = fontSize + "px";
+            }
+
+            adjustFontSize();
+            window.addEventListener('resize', adjustFontSize);
+
+            adjustButtonFontSize();
+            window.addEventListener('resize', adjustButtonFontSize);
 
             // Display the answer buttons in a 2x2 grid
             var answerButtonsContainer = document.createElement("div");
@@ -259,6 +279,8 @@ window.onload = function() {
             answerButtonsContainer.style.width = "50%";
             answerButtonsContainer.style.display = "flex"; // Use flexbox to align buttons
             answerButtonsContainer.style.flexWrap = "wrap"; // Allow buttons to wrap to the next row
+            answerButtonsContainer.style.minWidth = "200px"; // Set a minimum width to maintain the grid layout
+
             container.appendChild(answerButtonsContainer);
 
             for (var i = 0; i < selectedQuestion.answers.length; i++) {
@@ -271,6 +293,10 @@ window.onload = function() {
                 answerButton.style.width = "45%"; // Adjust width as needed
                 answerButton.style.height = "25%"; // Adjust height as needed
                 answerButton.style.margin = "5px"; // Add margin between buttons
+                answerButton.style.fontSize = "20px";
+
+
+
             }
 
             // Add event listeners to answer buttons
